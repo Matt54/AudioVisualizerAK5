@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var conductor: Conductor
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            VisualizerBars(amplitudes: $conductor.amplitudes, linearGradient: $conductor.linearGradient)
+        }
+        .onTapGesture {
+            self.conductor.colorChange()
+        }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(Conductor.shared)
     }
 }
