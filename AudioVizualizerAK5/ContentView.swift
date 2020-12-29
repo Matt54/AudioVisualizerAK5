@@ -12,13 +12,8 @@ struct ContentView: View {
     @EnvironmentObject var conductor: Conductor
     
     var body: some View {
-        ZStack{
-            VisualizerBars(amplitudes: $conductor.amplitudes, linearGradient: $conductor.linearGradient)
-        }
-        .onTapGesture {
-            self.conductor.colorChange()
-        }
-        .edgesIgnoringSafeArea(.all)
+        FFTView(amplitudes: conductor.amplitudes)
+            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 

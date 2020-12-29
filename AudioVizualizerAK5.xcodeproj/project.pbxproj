@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0FC71D259ABCA100F1C89B /* FFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0FC71C259ABCA100F1C89B /* FFTView.swift */; };
 		4FBC4AA325939936003C870F /* AudioVizualizerAK5App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC4AA225939936003C870F /* AudioVizualizerAK5App.swift */; };
 		4FBC4AA525939936003C870F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC4AA425939936003C870F /* ContentView.swift */; };
 		4FBC4AA725939937003C870F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC4AA625939937003C870F /* Assets.xcassets */; };
 		4FBC4AAA25939937003C870F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC4AA925939937003C870F /* Preview Assets.xcassets */; };
 		4FBC4AB425939A11003C870F /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBC4AB325939A11003C870F /* AudioKit */; };
 		4FBC4AB725939A59003C870F /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC4AB625939A59003C870F /* Conductor.swift */; };
-		4FBC4ABA2593A2C3003C870F /* VisualizerBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC4AB92593A2C3003C870F /* VisualizerBars.swift */; };
-		4FBC4ABD2593A2DF003C870F /* AmplitudeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC4ABC2593A2DF003C870F /* AmplitudeBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F0FC71C259ABCA100F1C89B /* FFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTView.swift; sourceTree = "<group>"; };
 		4FBC4A9F25939936003C870F /* AudioVizualizerAK5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioVizualizerAK5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBC4AA225939936003C870F /* AudioVizualizerAK5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVizualizerAK5App.swift; sourceTree = "<group>"; };
 		4FBC4AA425939936003C870F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -25,8 +25,6 @@
 		4FBC4AA925939937003C870F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4FBC4AAB25939937003C870F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FBC4AB625939A59003C870F /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
-		4FBC4AB92593A2C3003C870F /* VisualizerBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerBars.swift; sourceTree = "<group>"; };
-		4FBC4ABC2593A2DF003C870F /* AmplitudeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +60,11 @@
 			children = (
 				4FBC4AA225939936003C870F /* AudioVizualizerAK5App.swift */,
 				4FBC4AA425939936003C870F /* ContentView.swift */,
+				4F0FC71C259ABCA100F1C89B /* FFTView.swift */,
+				4FBC4AB625939A59003C870F /* Conductor.swift */,
 				4FBC4AA625939937003C870F /* Assets.xcassets */,
 				4FBC4AAB25939937003C870F /* Info.plist */,
 				4FBC4AA825939937003C870F /* Preview Content */,
-				4FBC4AB625939A59003C870F /* Conductor.swift */,
-				4FBC4AB92593A2C3003C870F /* VisualizerBars.swift */,
-				4FBC4ABC2593A2DF003C870F /* AmplitudeBar.swift */,
 			);
 			path = AudioVizualizerAK5;
 			sourceTree = "<group>";
@@ -155,9 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FBC4ABD2593A2DF003C870F /* AmplitudeBar.swift in Sources */,
 				4FBC4AA525939936003C870F /* ContentView.swift in Sources */,
-				4FBC4ABA2593A2C3003C870F /* VisualizerBars.swift in Sources */,
+				4F0FC71D259ABCA100F1C89B /* FFTView.swift in Sources */,
 				4FBC4AB725939A59003C870F /* Conductor.swift in Sources */,
 				4FBC4AA325939936003C870F /* AudioVizualizerAK5App.swift in Sources */,
 			);
