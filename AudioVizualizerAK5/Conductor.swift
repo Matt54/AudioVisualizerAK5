@@ -40,6 +40,8 @@ class Conductor : ObservableObject{
     /// limiter to prevent excessive volume at the output - just in case, it's the music producer in me :)
     let outputLimiter : PeakLimiter
     
+    let filter : LowPassFilter
+    
     /// bin amplitude values (range from 0.0 to 1.0)
     @Published var amplitudes : [Double] = Array(repeating: 0.5, count: 50)
     
@@ -51,7 +53,8 @@ class Conductor : ObservableObject{
         // setup mic
         mic = input
         micMixer = Mixer(mic)
-        silentMixer = Mixer(micMixer)
+        filter = LowPassFilter(micMixer)
+        silentMixer = Mixer(filter)
         
         // route the silent Mixer to the limiter (you must always route the audio chain to the output of the AudioEngine)
         outputLimiter = PeakLimiter(silentMixer)
@@ -60,7 +63,7 @@ class Conductor : ObservableObject{
         engine.output = outputLimiter
         
         // connect the fft tap to the mic mixer and send the fft data to our updateAmplitudes function on callback (when data is available)
-        fft = FFTTap(micMixer) { fftData in
+        fft = FFTTap(filter) { fftData in
             DispatchQueue.main.async {
                 self.updateAmplitudes(fftData)
             }
@@ -69,6 +72,7 @@ class Conductor : ObservableObject{
         //START AUDIOKIT
         do{
             try engine.start()
+            filter.start()
             fft.start()
         }
         catch{
