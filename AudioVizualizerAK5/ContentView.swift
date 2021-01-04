@@ -12,8 +12,11 @@ struct ContentView: View {
     @EnvironmentObject var conductor: Conductor
     
     var body: some View {
-        FFTView(amplitudes: conductor.amplitudes)
-            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.black
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            FFTView(amplitudes: conductor.amplitudes)
+        }
     }
 }
 

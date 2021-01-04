@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FFTView_Previews: PreviewProvider {
     static var previews: some View {
-        FFTView(amplitudes: Array(repeating: 0.95, count: 50))
+        FFTView(amplitudes: Array(repeating: 0.0, count: 50))
     }
 }
 

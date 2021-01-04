@@ -10,7 +10,6 @@ import Foundation
 /**
  This is the persistent data object that binds to the SwiftUI views.
  You can think of it as the model that holds all of our objects.
- The ChoirEffect class is likely all you need from this project, but the rest of this class should demonstrate how to interface with it functionality.
  */
 class Conductor : ObservableObject{
     
@@ -53,7 +52,6 @@ class Conductor : ObservableObject{
         mic = input
         micMixer = Mixer(mic)
         silentMixer = Mixer(micMixer)
-        silentMixer.volume = 0.0
         
         // route the silent Mixer to the limiter (you must always route the audio chain to AudioKit.output)
         outputLimiter = PeakLimiter(silentMixer)
@@ -76,6 +74,8 @@ class Conductor : ObservableObject{
         catch{
             assert(false, error.localizedDescription)
         }
+        
+        silentMixer.volume = 0.0
     }
     
     /// Analyze fft data and write to our amplitudes array
