@@ -53,7 +53,7 @@ class Conductor : ObservableObject{
         micMixer = Mixer(mic)
         silentMixer = Mixer(micMixer)
         
-        // route the silent Mixer to the limiter (you must always route the audio chain to AudioKit.output)
+        // route the silent Mixer to the limiter (you must always route the audio chain to the output of the AudioEngine)
         outputLimiter = PeakLimiter(silentMixer)
         
         // set the limiter as the last node in our audio chain
@@ -92,20 +92,22 @@ class Conductor : ObservableObject{
             let amplitude = Double(20.0 * log10(normalizedBinMagnitude))
             
             // scale the resulting data
-            var scaledAmplitude = (amplitude + 250) / 229.80
-            
-            // restrict the range to 0.0 - 1.0
-            if (scaledAmplitude < 0) {
-                scaledAmplitude = 0
-            }
-            if (scaledAmplitude > 1.0) {
-                scaledAmplitude = 1.0
-            }
+            let scaledAmplitude = (amplitude + 250) / 229.80
             
             // add the amplitude to our array (further scaling array to look good in visualizer)
             DispatchQueue.main.async {
                 if(i/2 < self.amplitudes.count){
-                    self.amplitudes[i/2] = self.map(n: scaledAmplitude, start1: 0.3, stop1: 0.9, start2: 0.0, stop2: 1.0)
+                    var mappedAmplitude = self.map(n: scaledAmplitude, start1: 0.3, stop1: 0.9, start2: 0.0, stop2: 1.0)
+                    
+                    // restrict the range to 0.0 - 1.0
+                    if (mappedAmplitude < 0) {
+                        mappedAmplitude = 0
+                    }
+                    if (mappedAmplitude > 1.0) {
+                        mappedAmplitude = 1.0
+                    }
+                    
+                    self.amplitudes[i/2] = mappedAmplitude
                 }
             }
         }
