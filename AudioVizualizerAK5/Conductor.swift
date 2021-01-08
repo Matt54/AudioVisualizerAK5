@@ -32,7 +32,7 @@ class Conductor : ObservableObject{
     var fft : FFTTap!
     
     /// size of fft
-    let FFT_SIZE = 512
+    let FFT_SIZE = 2048
     
     /// audio sample rate
     let sampleRate : double_t = 44100
